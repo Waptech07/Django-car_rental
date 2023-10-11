@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-------the car section start here --------------->
+<section class="container">
+    <h2 class="text-center m-4">CARS AVAILABLE FOR RENT</h2>
+    <div class="row">
+        {% for car in cars %}
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+            <div class="card">
+                <img src="{{ car.image.url }}" alt="{{ car.car_name }} Image" class="img-fluid card-img-top p-5 mb-2">
+                <div class="card-body bg-opacity-25 bg-secondary">
+                    <h5 class="card-title text-center">{{car.make}} {{car.model}} {{car.year}}</h5>
+                    <p class="card-text">{{car.detail}}</p>
+                    <h6 class="car-price"><span>Rent Price : </span> &#8358; {{ car.price_per_day }}</h6>
+                    <a class="btn btn-info w-100" href="{% url 'rent_car' %}">RENT NOW</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<h2 class="text-center m-4">CARS THAT WE HAVE</h2>
+
+<section class="container">
+    <h2 class="text-center m-4">AUDI CARS</h2>
+    <img src="../../media/car_brands/audi-logo.gif" alt="BMW" width="100" height="100">
+    <div class="row">
+        {% for car in audi_cars %}
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+            <div class="card">
+                <img src="{{ car.image.url }}" alt="{{ car.name }} Image" class="img-fluid card-img-top p-5 mb-2">
+                <div class="card-body bg-opacity-25 bg-secondary">
+                    <h5 class="card-title text-center">{{car.name}}</h5>
+                    <p class="card-text">{{car.detail}}</p>
+                    <h6 class="car-price"><span>Rent Price : </span> &#8358; {{ car.price }}</h6>
+                    <a class="btn btn-info w-100" href="{% url 'rent_car' %}">RENT NOW</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="container">
+    <h2 class="text-center m-4">BMW CARS</h2>
+    <div class="row">
+        {% for car in bmw_cars %}
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+            <div class="card">
+                <img src="{{ car.image.url }}" alt="{{ car.name }} Image" class="img-fluid card-img-top p-5 mb-2">
+                <div class="card-body bg-opacity-25 bg-secondary">
+                    <h5 class="card-title text-center">{{car.name}}</h5>
+                    <p class="card-text">{{car.detail}}</p>
+                    <h6 class="car-price"><span>Rent Price : </span> &#8356; {{ car.price }}</h6>
+                    <a class="btn btn-info w-100" href="{% url 'rent_car' %}">RENT NOW</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="container">
+    <h2 class="text-center m-4">MERCEDES BENZ CARS</h2>
+    <div class="row">
+        {% for car in mercedes_cars %}
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+            <div class="card">
+                <img src="{{ car.image.url }}" alt="{{ car.name }} Image" class="img-fluid card-img-top p-5 mb-2">
+                <div class="card-body bg-opacity-25 bg-secondary">
+                    <h5 class="card-title text-center">{{car.name}}</h5>
+                    <p class="card-text">{{car.detail}}</p>
+                    <h6 class="car-price"><span>Rent Price : </span> &#8356; {{ car.price }}</h6>
+                    <a class="btn btn-info w-100" href="{% url 'rent_car' %}">RENT NOW</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="container">
+    <h2 class="text-center m-4">TOYOTA CARS</h2>
+    <div class="row">
+        {% for car in toyota_cars %}
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+            <div class="card">
+                <img src="{{ car.image.url }}" alt="{{ car.name }} Image" class="img-fluid card-img-top p-5 mb-2">
+                <div class="card-body bg-opacity-25 bg-secondary">
+                    <h5 class="card-title text-center">{{car.name}}</h5>
+                    <p class="card-text">{{car.detail}}</p>
+                    <h6 class="car-price"><span>Rent Price : </span> &#8358; {{ car.price }}</h6>
+                    <a class="btn btn-info w-100" href="{% url 'rent_car' %}">RENT NOW</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section>
+    <h2 class="text-center m-4">OTHER BRANDS</h2>
+    <div class="row">
+        
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+            <div class="card">
+                <img src="{{ car.image.url }}" alt="{{ car.name }}'s Image" class="img-fluid card-img-top p-5 mb-2">
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

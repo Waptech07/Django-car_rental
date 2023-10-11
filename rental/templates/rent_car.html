@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+    .rent-car-container {
+        max-width: 400px;
+        margin: 0 auto;
+        background: #fff;
+        border: 1px solid black;
+        border-radius: 15px;
+    }
+</style>
+
+<div class="container mt-5 p-5 rounded-md rent-car-container">
+    <h1 class="text-center">Rent a Car</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="p-2">
+            <label for="car">Select a Car:</label>
+            <select name="car" id="car">
+                {% for car in cars %}
+                <option value="{{ car.id }}">{{ car.make }} {{ car.model }} {{car.year}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="p-2">
+            <label for="rental_date">Rental Date:</label>
+            <input type="date" name="rental_date" id="rental_date">
+        </div>
+        <div class="p-2">
+            <label for="return_date">Return Date:</label>
+            <input type="date" name="return_date" id="return_date">
+        </div>
+        <input type="submit" class="btn btn-info w-100 mt-3" value="Rent">
+    </form>
+</div>
+
+{% endblock %}

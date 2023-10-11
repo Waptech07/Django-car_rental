@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+    body {
+        background: #f8f9fa;
+    }
+
+    .jumbotron {
+        background-size: cover;
+        color: #fff;
+        text-align: center;
+        padding: 100px 0;
+        margin-bottom: 0;
+        border-radius: 0;
+    }
+
+    .jumbotron h1 {
+        font-size: 3rem;
+    }
+
+    .jumbotron p {
+        font-size: 1.5rem;
+    }
+</style>
+
+<div class="jumbotron">
+    <div class="container">
+        <h1 class="display-4"><span>Rent</span> your dream car <span>here now</span></h1>
+        <p class="lead">Export Cars from American and Canadan to Nigeria 250,000+ cars for Sale</p>
+        <a href="/" class="btn btn-info">Get In Touch</a>
+    </div>
+</div>
+
+
+<!-------the car section start here --------------->
+<section class="container">
+    <h2 class="text-center m-4">CARS</h2>
+    <p class="text-center mb-4">You are welcome to AUTOCARS dealer enterprises kindly select your choice here in
+        affordable price</p>
+    <div class="row">
+        {% for car in cars %}
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+            <div class="card">
+                <img src="{{ car.image.url }}" alt="{{ car.car_name }} Image" class="img-fluid card-img-top p-5 mb-2">
+                <div class="card-body bg-opacity-25 bg-secondary">
+                    <h5 class="card-title text-center">{{car.make}} {{car.model}} {{car.year}}</h5>
+                    <p class="card-text">{{car.detail}}</p>
+                    <h6 class="car-price"><span>Rent Price : </span> &#8358; {{ car.price_per_day }}</h6>
+                    <a class="btn btn-info w-100">RENT NOW</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+    /* Style for Rent History Page */
+    .rent-history-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    .rent-history-table th,
+    .rent-history-table td {
+        padding: 10px;
+        border: 1px solid #ddd;
+        text-align: center;
+    }
+</style>
+
+<div class="container rent-history-table">
+
+    <h1>Rent History</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Car</th>
+                <th>Rental Date</th>
+                <th>Return Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for rental in rentals %}
+            <tr>
+                <td>{{ rental.car.make }} {{ rental.car.model }}</td>
+                <td>{{ rental.rental_date }}</td>
+                <td>{{ rental.return_date }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
